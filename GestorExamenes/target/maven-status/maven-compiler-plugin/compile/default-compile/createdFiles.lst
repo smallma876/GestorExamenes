@@ -1,0 +1,7 @@
+com\smallmac\gestorexamenes\repository\UsuarioRepositoryImpl.class
+com\smallmac\gestorexamenes\domain\Usuario.class
+com\smallmac\gestorexamenes\service\UsuarioServiceImpl.class
+com\smallmac\gestorexamenes\service\UsuarioService.class
+com\smallmac\gestorexamenes\repository\UsuarioRepository.class
+com\smallmac\gestorexamenes\commons\ConnectionJDBC.class
+com\smallmac\gestorexamenes\service\AppServlet.class
