@@ -24,14 +24,22 @@ public class ProfesorRepositoryImpl implements ProfesorRepository {
 			pstm = con.prepareStatement(sql);
 			rs=pstm.executeQuery();
 			while(rs.next()){
-				Profesor 
+				Profesor profesor=new Profesor();
+				profesor.setIdprofesor(rs.getInt(1));
+				profesor.setIdusuario(rs.getInt(2));
+				profesor.setNombre(rs.getString(3));
+				profesor.setApellido(rs.getString(4));
+				profesor.setIdcurso(rs.getInt(5));
+				profesor.setEstudiosSuperiores(rs.getString(6));
+				profesor.setCurso(rs.getString(7));
+				profesores.add(profesor);
 			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		return null;
+		return profesores;
 	}
 	
 	public int registrarProfesor() {

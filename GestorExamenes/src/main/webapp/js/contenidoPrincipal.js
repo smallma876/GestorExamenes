@@ -6,6 +6,29 @@ function mostrarMantenimiento(clicked_id){
  	  	    document.getElementById("examenesPage").style.display="none";
  	  	    document.getElementById("preguntasPage").style.display="none";
  	  	    document.getElementById("seccionesPage").style.display="none";
+ 	  	    var fillProfesores = "fillProfesores";
+	 	  	 $.ajax({
+	 	 		type:'POST',
+	 	 		data:{tipo: fillProfesores},
+	 	 		url: '/GestorExamenes/ProfesorServlet',
+	 	 		success: function(responseJson){
+	 	 			var tableProfesores=document.getElementById("idTableProfesores");
+	 	 			var valor = responseJson;
+	 	 		
+	 	 			$.each(valor, function(k, v){
+	 	 				//$("<option>").val(v.idcurso).text(v.descripcion).appendTo(selectCurso);
+	 	 				$("<tr>").appendTo(tableProfesores)
+	 	 						.append($("<td>").text(v.idprofesor))
+	 	 						.append($("<td>").text(v.nombre))
+	 	 						.append($("<td>").text(v.apellido))
+	 	 						.append($("<td>").text(v.curso))
+	 	 						.append($("<td>").text(v.salario))
+	 	 						.append($("<td>").text(v.EstudiosSuperiores))
+	 	 						
+	 	 			});
+	 	 		
+	 	 		}
+	 	 	});
  	  	    	  	   
  	  	}
 	  	if(clicked_id.trim() == "idEnlacealumnos"){
@@ -69,5 +92,5 @@ function mostrarMantenimiento(clicked_id){
 	 		}
 	 	})
 		document.getElementById("idDivFormRegistrarUsuario").style.display="block";
-		document.getElementById("divIdListaUsuarios").style.display="none";
+		document.getElementById("divIdProfesores").style.display="none";
 };
