@@ -22,7 +22,11 @@
 		</tr>
 		<tr>
 			<td>Perfil : </td>
-			<td><input type="text" id="perfil" name="perfil"></td>
+			<td>
+				<select id="idPerfil">
+				</select> 
+			
+			</td>
 		</tr>
 		<tr>
 			<td>Estudios Superiores : </td>
@@ -30,9 +34,9 @@
 		</tr>
 		<tr>
 			<td>Curso : </td>
-			<td><input type="text" id="curso" name="curso"></td>
 			<td>
-				<select></select> 
+				<select id="idCurso">
+				</select> 
 			
 			</td>
 		</tr>
@@ -46,18 +50,33 @@
 		</tr>
 		<tr>
 			<td>Turno : </td>
-			<td><input type="text" id="salario" name="salario"></td>
+			<td>
+				<select id="idTurno">
+						<option value="0">Mañana</option>
+						<option value="1">Tarde</option>
+				</select> 
+			</td>
+			
 		</tr>
 		<tr>
 			<td>Estado : </td>
-			<td><input type="text" id="estado" name="estado"></td>
+			<td>
+				<label>Activo</label>
+				<input type="radio" id="idEstadoOn" name="estado" value="1">
+				<label>Receso</label>
+				<input type="radio" id="idEstadoOff" name="estado" value="0">
+			</td>	
 		</tr>
 			
 		<tr>
 			<td>Foto : </td>
-			<td><input type="text" id="foto" name="foto"></td>
+			<td> <input type="file" name="pic" id="pic"></td>
 		</tr>
-		
+		<tr>
+			<td>
+				<input type="submit" value="REGISTRAR"/>
+	 		</td>
+		</tr>
 	</table>
 	</form>
 	

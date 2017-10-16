@@ -51,23 +51,5 @@
 </body>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/contenidoPrincipal.js"></script>
-<script type="text/javascript">
-// 	 if(document.getElementById("idEnlaceprofesores") != null){
-// 		 document.getElementById("idEnlaceprofesores").href="/GestorExamenes/CursoServlet";
-// 	 }
-// 	 if(document.getElementById("idEnlacealumnos") != null ){
-// 		 document.getElementById("idEnlacealumnos").href="#";
-// 	 }
-// 	 if(document.getElementById("idEnlaceexamenes") != null ){
-// 		 document.getElementById("idEnlaceexamenes").href="#";
-// 	 }
-// 	 if(document.getElementById("idEnlacepreguntas") != null ){
-// 		 document.getElementById("idEnlacepreguntas").href="#";
-// 	 }
-// 	 if(document.getElementById("idEnlacesecciones") != null ){
-// 		 document.getElementById("idEnlacesecciones").href="#";
-// 	 }
-	 
-	  
-</script>
+
 </html>

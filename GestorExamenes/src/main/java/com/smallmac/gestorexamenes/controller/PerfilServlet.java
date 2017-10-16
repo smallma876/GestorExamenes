@@ -12,23 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.smallmac.gestorexamenes.domain.Curso;
-import com.smallmac.gestorexamenes.service.CursoService;
-import com.smallmac.gestorexamenes.service.CursoServiceImpl;
+import com.smallmac.gestorexamenes.domain.Perfil;
+import com.smallmac.gestorexamenes.service.PerfilService;
+import com.smallmac.gestorexamenes.service.PerfilServiceImpl;
 
 /**
- * Servlet implementation class CursoServlet
+ * Servlet implementation class PerfilServlet
  */
-@WebServlet("/CursoServlet")
-public class CursoServlet extends HttpServlet {
+@WebServlet("/PerfilServlet")
+public class PerfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    CursoService servicioCurso = new CursoServiceImpl(); 
+    PerfilService servicioPerfil = new PerfilServiceImpl();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CursoServlet() {
-    	super();
-    	System.out.println("hola ps!!");
-        
+    public PerfilServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -36,31 +35,16 @@ public class CursoServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if("fillCursos".equalsIgnoreCase(request.getParameter("tipo"))){
-			List<Curso> cursos = new ArrayList<>();
-			cursos = servicioCurso.getTodosCursos();
-			String json = new Gson().toJson(cursos);
+		if("fillPerfiles".equalsIgnoreCase(request.getParameter("tipo"))){
+			List<Perfil> perfiles = new ArrayList<>();
+			perfiles = servicioPerfil.listaPerfiles();
+			String json = new Gson().toJson(perfiles);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write(json);
 			
 		}
 		
-		
 	}
-	
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
