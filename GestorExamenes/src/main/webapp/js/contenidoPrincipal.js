@@ -87,10 +87,9 @@ function mostrarMantenimiento(clicked_id){
 	 			var valor = responseJson;
 	 			$.each(valor, function(k, v){
 	 				$("<option>").val(v.idperfil).text(v.descripcion).appendTo(selectPerfil);
-	 			});
-	 		
+	 			});	 		
 	 		}
-	 	})
+	 	});
 		document.getElementById("idDivFormRegistrarUsuario").style.display="block";
 		document.getElementById("divIdProfesores").style.display="none";
 };
