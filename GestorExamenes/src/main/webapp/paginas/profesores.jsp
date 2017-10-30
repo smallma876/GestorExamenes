@@ -83,25 +83,20 @@
 </div>
 <div id="divIdProfesores">
 	<a href="#" onclick="registrarUsuario();">Nuevo</a>
-	<table id="idTableProfesores">
-		<tr>
-			<th>ID</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Curso</th>
-			<th>Salario</th>
-			<th>Estudios</th>
-			<th>Foto</th>
-			<th>Editar</th>
-			<th>Eliminar</th>
-		</tr>
-<!-- 		<tr> -->
-<!-- 			<td></td> -->
-<!-- 			<td></td> -->
-<!-- 			<td></td> -->
-<!-- 			<td></td> -->
-<!-- 			<td></td> -->
-<!-- 			<td></td> -->
-<!-- 		</tr>	 -->
+	<table id="idTableProfesores" class="display" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Curso</th>
+				<th>Salario</th>
+				<th>Estudios</th>
+				<th>Foto</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
+			</tr>
+		</thead>
+		
 	</table>
 </div>

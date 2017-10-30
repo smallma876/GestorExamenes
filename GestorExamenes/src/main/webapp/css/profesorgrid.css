@@ -1,0 +1,5 @@
+.dataTables_wrapper .dataTables_info{
+	float:right;
+	clear: none;
+	padding-right: 1em;
+}

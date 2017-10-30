@@ -1,6 +1,7 @@
 package com.smallmac.gestorexamenes.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory;
 import com.smallmac.gestorexamenes.domain.Profesor;
 import com.smallmac.gestorexamenes.service.ProfesorService;
 import com.smallmac.gestorexamenes.service.ProfesorServiceImpl;
@@ -35,14 +40,32 @@ public class ProfesorServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		if("fillProfesores".equalsIgnoreCase(request.getParameter("tipo"))){
+		//if("fillProfesores".equalsIgnoreCase(request.getParameter("tipo"))){
 			List<Profesor> profesores = new ArrayList<>();
 			profesores = servicioProfesor.getTodosProfesores();
-			String json = new Gson().toJson(profesores);
-			response.setContentType("application/json");
-			response.setCharacterEncoding("UTF-8");
-			response.getWriter().write(json);
-		}
+			
+			JsonElement json = new Gson().toJsonTree(profesores);
+			JsonElement draw = new Gson().toJsonTree("1");
+			JsonElement recordsTotal=new Gson().toJsonTree("24");
+			JsonElement recordsFiltered=new Gson().toJsonTree("57");
+			JsonObject jsonObject = new JsonObject();
+			jsonObject.add("draw", draw);
+			jsonObject.add("recordsTotal", recordsTotal);
+			jsonObject.add("recordsFiltered", recordsFiltered);
+			jsonObject.add("data", json);
+			
+			PrintWriter writer = response.getWriter();
+			writer.print(jsonObject);
+			writer.flush();
+			writer.close();
+			
+		    System.out.println(jsonObject);
+			
+		//}
+	}
+	
+	public void listarProfesores(HttpServletRequest request, HttpServletResponse response){
+		
 	}
 
 }
