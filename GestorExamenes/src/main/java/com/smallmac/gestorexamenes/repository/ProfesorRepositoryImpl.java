@@ -18,7 +18,7 @@ public class ProfesorRepositoryImpl implements ProfesorRepository {
 		ResultSet rs=null;
 		try {
 			con = ConnectionJDBC.getConnection();
-			String sql="select tp.idprofesor,tp.idusuario,tu.nombre,tu.apellido,tp.idcurso,tp.EstudiosSuperiores,tc.descripcion "+
+			String sql="select tp.idprofesor,tp.idusuario,tu.nombre,tu.apellido,tp.idcurso,tp.EstudiosSuperiores,tc.descripcion,tp.salario "+
 					   "from tdp_profesor tp inner join tdp_usuario tu on tp.idusuario=tu.idusuario inner join tdp_curso tc "+
 					   "on tp.idcurso=tc.idcurso";
 			pstm = con.prepareStatement(sql);
@@ -32,6 +32,7 @@ public class ProfesorRepositoryImpl implements ProfesorRepository {
 				profesor.setIdcurso(rs.getInt(5));
 				profesor.setEstudiosSuperiores(rs.getString(6));
 				profesor.setCurso(rs.getString(7));
+				profesor.setSalario(rs.getDouble(8));
 				profesores.add(profesor);
 			}
 			
