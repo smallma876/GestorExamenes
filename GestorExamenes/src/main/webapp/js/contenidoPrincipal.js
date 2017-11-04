@@ -14,11 +14,10 @@ function mostrarMantenimiento(clicked_id){
 	 	 		success: function(responseJson){
 	 	 			var tableProfesores=document.getElementById("idTableProfesores");
 	 	 			var valor = responseJson;
-	 	 			$("#data").remove();
+	 	 		
 	 	 			$.each(valor, function(k, v){
-	 	 				
-	 	 				
-	 	 				$("<tr id='data'>").appendTo(tableProfesores)
+	 	 				//$("<option>").val(v.idcurso).text(v.descripcion).appendTo(selectCurso);
+	 	 				$("<tr>").appendTo(tableProfesores)
 	 	 						.append($("<td>").text(v.idprofesor))
 	 	 						.append($("<td>").text(v.nombre))
 	 	 						.append($("<td>").text(v.apellido))
