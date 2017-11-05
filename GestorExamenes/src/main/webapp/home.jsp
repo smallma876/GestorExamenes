@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Gestor de Examenes Home</title>
 <link rel="stylesheet" href="css/flexboxgrid.min.css">
-
+<link rel="stylesheet" href="css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="css/profesorgrid.css">
 </head>
 <body>
 	<div class="container">
@@ -50,6 +51,9 @@
 	</div>
 </body>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/contenidoPrincipal.js"></script>
-
+<script type="text/javascript" src="js/knockout-3.4.2.js"></script>
+<script type="text/javascript" src="js/vmprofesor.js"></script>
+<script type="text/javascript" src="js/vmalumno.js"></script>
 </html>

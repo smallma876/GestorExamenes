@@ -10,7 +10,7 @@ public class ConnectionJDBC {
 		 try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/cbc_gestorexamenes","root","mysql");
+					"jdbc:mysql://localhost:3306/cbc_gestorexamenes","root","root");
 			
 			 
 		} catch (Exception e) {
