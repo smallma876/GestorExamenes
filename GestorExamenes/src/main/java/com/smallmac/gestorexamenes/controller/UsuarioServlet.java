@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.smallmac.gestorexamenes.domain.Usuario;
 import com.smallmac.gestorexamenes.service.UsuarioService;
@@ -34,7 +35,7 @@ public class UsuarioServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+	
 		if("login".equalsIgnoreCase(request.getParameter("login"))){		
 			String response_Captcha=request.getParameter("g-recaptcha-response");
 			if(response_Captcha!=null){
@@ -50,6 +51,7 @@ public class UsuarioServlet extends HttpServlet {
 				}
 				
 			}
+			HttpSession misession = request.getSession(true);
 			
 			
 			System.out.println(response_Captcha);
@@ -57,8 +59,8 @@ public class UsuarioServlet extends HttpServlet {
 			oUsuario.setContrasenia(request.getParameter("contrasenia"));
 			Usuario _usuario= new Usuario();
 			_usuario = usuarioService.getUsuarioLogin(oUsuario);
-			request.setAttribute("usuario", _usuario);
-			request.setAttribute("listaPermisos", usuarioService.getPermisos(_usuario.getIdperfil()));
+			misession.setAttribute("usuario", _usuario);
+			misession.setAttribute("listaPermisos", usuarioService.getPermisos(_usuario.getIdperfil()));
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
 	}

@@ -1,23 +1,52 @@
-<h1>Mantenimiento Alumnos</h1>
-<div id="divListaAlumnosId">
-<table>
-	<thead>
-		<tr>
-			<th>First Name</th>
-			<th>Last Name</th>
-		</tr>
-	</thead>
-	<tbody data-bind="foreach: alumnos">
-		<tr>
-			<td data-bind="text: firstName"></td>
-			<td data-bind="text: lastName"></td>
-		</tr>
-	</tbody>
-</table>
-<div>
-<input type="button" value="Reemplazar1" onclick="listarDataUno();">
-<input type="button" value="Reemplazar2" onclick="listarDataDos();">
-<input type="button" value="Alerta" id="alertaId">
-</div>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Gestor de Examenes Home</title>
+<link rel="stylesheet" href="css/flexboxgrid.min.css">
+<link rel="stylesheet" href="css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="css/profesorgrid.css">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-</div>
+</head>
+<body>
+	<div class="container">
+		<header class="row">
+			<div class="col-xs-12">
+				<div>
+					<h1>Mantenimiento Alumnos  :::: usuario: ${sessionScope.usuario.nombre}</h1>
+				</div>				
+			</div>
+		</header>
+		<div class="row">
+			<div class="col-xs-2">
+				<div >
+					<jsp:include page="menu.jsp"></jsp:include>
+				</div>
+			</div>
+			<div class="col-xs-10">
+				<div >
+					
+				</div>
+			</div>
+		</div>
+		
+
+
+		<footer class="row">
+			<div class="col-xs-12">
+					
+			</div>
+		</footer>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/contenidoPrincipal.js"></script>
+<script type="text/javascript" src="js/knockout-3.4.2.js"></script>
+<script type="text/javascript" src="js/alumnos.js"></script>
+<script src="js/jspdf.debug.js"></script>
+<script src="js/html2canvas.min.js"></script>
+</html>

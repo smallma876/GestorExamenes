@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.smallmac.gestorexamenes.commons.ConnectionJDBC;
 import com.smallmac.gestorexamenes.domain.Profesor;
+import com.smallmac.gestorexamenes.domain.Usuario;
 
 public class ProfesorRepositoryImpl implements ProfesorRepository {
 
@@ -43,7 +44,29 @@ public class ProfesorRepositoryImpl implements ProfesorRepository {
 		return profesores;
 	}
 	
-	public int registrarProfesor() {
+	public int registrarProfesor(Profesor profesor, Usuario usuario) {
+		
+		Connection con=null;
+		PreparedStatement pstm=null;
+	
+		try {
+			con = ConnectionJDBC.getConnection();
+			String sql="insert into cbc_gestorexamenes.tdp_usuario (nombre,apellido,usuario,contrasenia,idperfil,fechaIngreso,estado)values (nombre,apellido,usuario, contrasenia,idperfil,fechaIngreso,estado);";
+			pstm = con.prepareStatement(sql);
+			pstm.setString(0, usuario.getNombre());
+			pstm.setString(1, usuario.getApellido());
+			pstm.setString(2, usuario.getUsuario());
+			pstm.setString(3, usuario.getContrasenia());
+			pstm.setInt(4, usuario.getIdperfil());
+			pstm.setDate(5, usuario.getFechaIngreso());
+			pstm.setInt(6, usuario.getEstado());
+		
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 		return 0;
 	}
 	

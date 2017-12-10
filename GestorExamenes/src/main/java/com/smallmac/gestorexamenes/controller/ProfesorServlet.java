@@ -23,7 +23,7 @@ import com.smallmac.gestorexamenes.service.ProfesorServiceImpl;
 /**
  * Servlet implementation class ProfesorServlet
  */
-@WebServlet("/ProfesorServlet")
+@WebServlet("/profesoresServlet")
 public class ProfesorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      ProfesorService servicioProfesor=new ProfesorServiceImpl();
@@ -40,32 +40,35 @@ public class ProfesorServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//if("fillProfesores".equalsIgnoreCase(request.getParameter("tipo"))){
-			List<Profesor> profesores = new ArrayList<>();
-			profesores = servicioProfesor.getTodosProfesores();
-			
-			JsonElement json = new Gson().toJsonTree(profesores);
-			JsonElement draw = new Gson().toJsonTree("1");
-			JsonElement recordsTotal=new Gson().toJsonTree("24");
-			JsonElement recordsFiltered=new Gson().toJsonTree("57");
-			JsonObject jsonObject = new JsonObject();
-			jsonObject.add("draw", draw);
-			jsonObject.add("recordsTotal", recordsTotal);
-			jsonObject.add("recordsFiltered", recordsFiltered);
-			jsonObject.add("data", json);
-			
-			PrintWriter writer = response.getWriter();
-			writer.print(jsonObject);
-			writer.flush();
-			writer.close();
-			
-		    System.out.println(jsonObject);
-			
-		//}
+		String accion = request.getParameter("accion");
+		if("fillProfesores".equalsIgnoreCase(accion)){
+			listarProfesores(request,response);
+		}
+		else{
+			request.getRequestDispatcher("/paginas/profesores.jsp").forward(request, response);	
+		}
 	}
 	
-	public void listarProfesores(HttpServletRequest request, HttpServletResponse response){
+	public void listarProfesores(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		List<Profesor> profesores = new ArrayList<>();
+		profesores = servicioProfesor.getTodosProfesores();
 		
+		JsonElement json = new Gson().toJsonTree(profesores);
+		JsonElement draw = new Gson().toJsonTree("1");
+		JsonElement recordsTotal=new Gson().toJsonTree("24");
+		JsonElement recordsFiltered=new Gson().toJsonTree("57");
+		JsonObject jsonObject = new JsonObject();
+		jsonObject.add("draw", draw);
+		jsonObject.add("recordsTotal", recordsTotal);
+		jsonObject.add("recordsFiltered", recordsFiltered);
+		jsonObject.add("data", json);
+		
+		PrintWriter writer = response.getWriter();
+		writer.print(jsonObject);
+		writer.flush();
+		writer.close();
+		
+	    System.out.println(jsonObject);
 	}
 
 }
