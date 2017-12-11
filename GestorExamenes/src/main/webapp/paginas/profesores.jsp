@@ -29,8 +29,11 @@
 			<div class="col-xs-10">
 				<div id="profesoresBody">
 					<div style="display:none;" id="idDivFormRegistrarUsuario">
-					<form action="" autocomplete="off" >
+					<form action="/GestorExamenes/profesoresServlet" autocomplete="off" >
 					<table>
+						<tr>
+							<td><input type="hidden" name="accion" value="registrarProfesor"></td>
+						</tr>
 						<tr>
 							<td>Nombres : </td>
 							<td><input type="text" id="nombre" name="nombre"></td>
@@ -78,7 +81,7 @@
 						<tr>
 							<td>Turno : </td>
 							<td>
-								<select id="idTurno">
+								<select id="idTurno" name="turno">
 										<option value="0">Mañana</option>
 										<option value="1">Tarde</option>
 								</select> 
